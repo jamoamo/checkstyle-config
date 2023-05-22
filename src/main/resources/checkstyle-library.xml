@@ -170,7 +170,14 @@ THE SOFTWARE.
       <module name="PackageName"/>
       <module name="ParameterName"/>
       <module name="StaticVariableName"/>
-      <module name="TypeName"/>
+      <module name="TypeName">
+         <property name="format" value="^I[A-Z]*.+$"/>
+         <property name="tokens" value="INTERFACE_DEF"/>
+      </module>
+      <module name="TypeName">
+         <property name="format" value=	"^[A-Z][a-zA-Z0-9]*$"/>
+         <property name="tokens" value="CLASS_DEF, ENUM_DEF, ANNOTATION_DEF, RECORD_DEF"/>
+      </module>
       <!-- 
          Size Violations Checks: 
          https://checkstyle.sourceforge.io/config_sizes.html
