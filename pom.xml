@@ -9,6 +9,8 @@
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
    </properties>
    <name>checkstyle-config</name>
+   <description>A set of checkstyle configurations</description>
+   <url>https://github.com/jamoamo/checkstyle-config</url>
    
    <licenses>
       <license>
