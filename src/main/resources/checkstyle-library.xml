@@ -88,7 +88,10 @@ THE SOFTWARE.
       <module name="OneStatementPerLine"/>
       <module name="OverloadMethodsDeclarationOrder"/>
       <module name="PackageDeclaration"/>
-      <module name="RequireThis"/>
+      <module name="RequireThis">
+         <property name="checkMethods" value="false"/>
+         <property name="validateOnlyOverlapping" value="false"/>
+      </module>
       <module name="SimplifyBooleanExpression"/>
       <module name="SimplifyBooleanReturn"/>
       <module name="StringLiteralEquality"/>
