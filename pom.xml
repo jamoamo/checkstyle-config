@@ -9,6 +9,62 @@
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
    </properties>
    <name>checkstyle-config</name>
+   
+   <scm>
+      <connection>scm:git:https://github.com/jamoamo/checkstyle-config.git</connection>
+      <developerConnection>scm:git:https://github.com/jamoamo/checkstyle-config.git</developerConnection>
+      <url>https://github.com/jamoamo/checkstyle-config</url>
+      <tag>HEAD</tag>
+   </scm>
+   
+   <profiles>
+      <profile>
+         <id>release</id>
+         <activation>
+            <property>
+               <name>release</name>
+            </property>
+         </activation>
+         <build>
+            <plugins>
+               <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-gpg-plugin</artifactId>
+                  <version>3.0.1</version>
+                  <executions>
+                     <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                           <goal>sign</goal>
+                        </goals>
+                     </execution>
+                  </executions>
+               </plugin>
+               <plugin>
+                  <groupId>org.sonatype.plugins</groupId>
+                  <artifactId>nexus-staging-maven-plugin</artifactId>
+                  <version>1.6.13</version>
+                  <executions>
+                     <execution>
+                        <id>default-deploy</id>
+                        <phase>deploy</phase>
+                        <goals>
+                           <goal>deploy</goal>
+                        </goals>
+                     </execution>
+                  </executions>
+                  <configuration>
+                     <serverId>ossrh</serverId>
+                     <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                     <skipStaging>true</skipStaging>
+                  </configuration>
+               </plugin>
+            </plugins>
+         </build>
+      </profile>
+   </profiles>
     
    <build>
       <plugins>
